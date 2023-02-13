@@ -9,7 +9,7 @@ import PropertyDetails from "./pages/PropertyDetails";
 
 const App = () => {
   return (
-    <div className="text-center">
+    <div className="text-center bg-white max-w-[1440px] mx-auto">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
