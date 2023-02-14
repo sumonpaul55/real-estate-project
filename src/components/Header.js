@@ -14,7 +14,7 @@ const Header = () => {
           <Link to="login" className="hover:text-violet-900">
             Log in
           </Link>
-          <Link to="signup" className="bg-violet-800 hover:bg-violet-600 rounded text-white px-4 py-2">
+          <Link to="signup" className="bg-violet-800 transition hover:bg-violet-600 rounded text-white px-4 py-2">
             Sign up
           </Link>
         </div>
