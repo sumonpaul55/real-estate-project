@@ -3,6 +3,7 @@ import CountryDropdown from "../components/CountryDropdown";
 import PropertyDropdown from "../components/PropertyDropdown";
 import PriceRangeDropdown from "../components/PriceRangeDropdown";
 // import Icons
+
 import { RiSearch2Line } from "react-icons/ri";
 const Search = () => {
   return (
