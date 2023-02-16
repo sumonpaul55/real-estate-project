@@ -15,12 +15,12 @@ const CountryDropdown = () => {
         <div>
           <div className="text-[15px] font-medium leading-tight">{country}</div>
           <div className="text-[13px]">Select your place</div>
-          {isopen ? <RiArrowUpLine className="dropdown-icon-secondary" /> : <RiArrowDownLine className="dropdown-icon-secondary" />}
         </div>
+        {isopen ? <RiArrowUpLine className="dropdown-icon-secondary" /> : <RiArrowDownLine className="dropdown-icon-secondary" />}
       </Menu.Button>
       <Menu.Items>
         {countries.map((country, index) => (
-          <Menu.Item as="li" key={index} className="cursor-pointer">
+          <Menu.Item as="li" key={index} className="cursor-pointer hover:text-violet-700 transition" onClick={() => setCountry(country)}>
             {country}
           </Menu.Item>
         ))}
