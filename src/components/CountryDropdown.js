@@ -5,7 +5,7 @@ import { HouseContext } from "./HouseContext";
 
 const CountryDropdown = () => {
   const { country, setCountry, countries } = useContext(HouseContext);
-  console.log(countries);
+  // console.log(country);
   const [isopen, setisOpen] = useState(true);
 
   return (
@@ -18,7 +18,7 @@ const CountryDropdown = () => {
         </div>
         {isopen ? <RiArrowUpLine className="dropdown-icon-secondary" /> : <RiArrowDownLine className="dropdown-icon-secondary" />}
       </Menu.Button>
-      <Menu.Items>
+      <Menu.Items className="dropdown-menu">
         {countries.map((country, index) => (
           <Menu.Item as="li" key={index} className="cursor-pointer hover:text-violet-700 transition" onClick={() => setCountry(country)}>
             {country}

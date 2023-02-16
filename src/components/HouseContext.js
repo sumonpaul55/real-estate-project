@@ -21,11 +21,11 @@ const HouseContextProvider = ({ children }) => {
     const allcountries = houses.map((house) => {
       return house.country;
     });
-    console.log(allcountries);
+    // console.log(allcountries);
     // remove duplicates
     const uniqueCountry = ["Location (any)", ...new Set(allcountries)];
-    console.log(uniqueCountry);
-  });
+    setCountries(uniqueCountry);
+  }, [houses]);
 
   return (
     <HouseContext.Provider
