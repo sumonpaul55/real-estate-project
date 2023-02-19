@@ -38,6 +38,10 @@ const HouseContextProvider = ({ children }) => {
     // console.log(uniqueProperty);
   }, [houses]);
 
+  const handleSearch = () => {
+    console.log("clicked");
+  };
+
   return (
     <HouseContext.Provider
       value={{
@@ -51,6 +55,7 @@ const HouseContextProvider = ({ children }) => {
         setPrice,
         houses,
         loading,
+        handleSearch,
       }}
     >
       {children}
