@@ -37,9 +37,13 @@ const HouseContextProvider = ({ children }) => {
     setProperties(uniqueProperty);
     // console.log(uniqueProperty);
   }, [houses]);
-
   const handleSearch = () => {
-    console.log("clicked");
+    // console.log(typeof country);
+    // create a function that checks if the string includes "(any)"
+    const isDefault = (str) => {
+      return str.split(" ").includes("(any)");
+    };
+    console.log(isDefault(country));
   };
 
   return (
