@@ -43,7 +43,14 @@ const HouseContextProvider = ({ children }) => {
     const isDefault = (str) => {
       return str.split(" ").includes("(any)");
     };
-    console.log(isDefault(country));
+    const minPrice = parseInt(price.split(" ")[0]);
+    const maxPrice = parseInt(price.split(" ")[2]);
+
+    const newHouse = housesData.filter((house) => {
+      const housePrice = parseInt(house.price);
+      console.log(housePrice);
+    });
+    return newHouse;
   };
 
   return (
