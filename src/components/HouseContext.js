@@ -18,7 +18,7 @@ const HouseContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   // return all country
   useEffect(() => {
-    const allcountries = houses.map((house) => {
+    const allcountries = housesData.map((house) => {
       return house.country;
     });
     // console.log(allcountries);
@@ -28,7 +28,7 @@ const HouseContextProvider = ({ children }) => {
   }, [houses]);
   // call data for Properties
   useEffect(() => {
-    const allPropertise = houses.map((house) => {
+    const allPropertise = housesData.map((house) => {
       return house.type;
     });
     // console.log(allPropertise);
@@ -38,6 +38,7 @@ const HouseContextProvider = ({ children }) => {
     // console.log(uniqueProperty);
   }, [houses]);
   const handleSearch = () => {
+    setLoading(true);
     // console.log(typeof country);
     // create a function that checks if the string includes "(any)"
     const isDefault = (str) => {
@@ -93,9 +94,12 @@ const HouseContextProvider = ({ children }) => {
         return house;
       }
     });
-    console.log(newHouse);
+    setTimeout(() => {
+      return newHouse.length < 1 ? setHouse([]) : setHouse(newHouse);
+      // eslint-disable-next-line no-unreachable
+      setLoading(false);
+    }, 1000);
   };
-
   return (
     <HouseContext.Provider
       value={{
