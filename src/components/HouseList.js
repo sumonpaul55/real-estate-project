@@ -12,7 +12,7 @@ const HouseList = () => {
     return <ImSpinner2 className="animate-spin text-4xl mx-auto" />;
   }
   if (houses.length < 1) {
-    return <h3 className="text-center text-3xl">Nothing found</h3>;
+    return <h3 className="text-center text-3xl mt-48 text-gray-400">Sorry, Nothing found</h3>;
   }
   return (
     <section className="">
