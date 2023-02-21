@@ -47,10 +47,30 @@ const HouseContextProvider = ({ children }) => {
     const maxPrice = parseInt(price.split(" ")[2]);
 
     const newHouse = housesData.filter((house) => {
-      const housePrice = parseInt(house.price);
-      console.log(housePrice);
+      // if all values are selected
+      if (house.country === country && house.type === property && house.price >= minPrice && house.price <= maxPrice) {
+        return house;
+      }
+      // if all values are default
+      if (isDefault(country) && isDefault(property) && isDefault(price)) {
+        return house;
+      }
+      // if country only selected and not default
+      if (!isDefault(country) && isDefault(property) && isDefault(price)) {
+        return house.country === country;
+      }
+      // if only property selected & if default is false
+      if (isDefault(country) && !isDefault(property) && isDefault(price)) {
+        return house.type === property;
+      }
+      // if only price is selected & if default is false
+      if (isDefault(country) && isDefault(property) && !isDefault(price)) {
+        if (house.price >= minPrice && house.price <= maxPrice) {
+          return house;
+        }
+      }
     });
-    return newHouse;
+    console.log(newHouse);
   };
 
   return (
