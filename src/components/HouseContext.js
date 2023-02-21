@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-sequences */
 import React, { createContext, useEffect, useState } from "react";
 //import data
 import { housesData } from "../data";
@@ -72,7 +74,7 @@ const HouseContextProvider = ({ children }) => {
         }
       }
       // if country and property is selected and not default
-      if (!isDefault(country) && !isDefault(property)) {
+      if (!isDefault(country) && !isDefault(property) && isDefault(price)) {
         if (house.country === country && house.type === property) {
           return house;
         }
@@ -90,14 +92,14 @@ const HouseContextProvider = ({ children }) => {
         }
       }
       // if country property and price is selected and not default
-      if (!isDefault(country) && isDefault(property) && !isDefault(price) && house.country === country && house.type === property) {
-        return house;
+      if (!isDefault(country) && !isDefault(property) && !isDefault(price)) {
+        if (house.country === country && house.type === property && housePrice >= minPrice && housePrice <= maxPrice) {
+          return house;
+        }
       }
     });
     setTimeout(() => {
-      return newHouse.length < 1 ? setHouse([]) : setHouse(newHouse);
-      // eslint-disable-next-line no-unreachable
-      setLoading(false);
+      return newHouse.length < 1 ? setHouse([]) : setHouse(newHouse), setLoading(false);
     }, 1000);
   };
   return (

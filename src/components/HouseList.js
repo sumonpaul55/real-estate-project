@@ -2,10 +2,18 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { HouseContext } from "./HouseContext";
 import House from "./House";
+import { ImSpinner2 } from "react-icons/im";
 
 const HouseList = () => {
-  const { houses } = useContext(HouseContext);
+  const { houses, loading } = useContext(HouseContext);
   // console.log(houses);
+
+  if (loading) {
+    return <ImSpinner2 className="animate-spin text-4xl mx-auto" />;
+  }
+  if (houses.length < 1) {
+    return <h3 className="text-center text-3xl">Nothing found</h3>;
+  }
   return (
     <section className="">
       <div className="container mx-auto">
